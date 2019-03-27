@@ -1,0 +1,14 @@
+<h1>Neutral News</h1>
+
+<ul>
+    <% data["articles"].forEach(function(article) { %>
+      <li>
+          <strong>
+              <%= article["title"] %>
+          </strong> 
+          <hr>
+            <%=article["content"]%>
+      </li>
+    <% }) %>
+</ul>
+
