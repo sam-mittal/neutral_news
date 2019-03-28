@@ -1,14 +1,21 @@
 <h1>Neutral News</h1>
 
 <ul>
-    <% data["articles"].forEach(function(article) { %>
+    <% data.forEach(function(article) { %>
       <li>
           <strong>
               <%= article["title"] %>
           </strong> 
           <hr>
             <%=article["content"]%>
+          <hr>
+            <%=article["author"]%>
+          <hr>
+            <form action="/fakevote", method="POST"></form>
+              <input type="submit" name="fakevote" value="Upvote" placeholder="flag as fake"/><span> <%= article["fc"] %></span>
+            </form>
       </li>
     <% }) %>
 </ul>
-
+<form action="/fakevote" method="POST"></form>
+    <input type="submit" name="fakevote" value="Upvote" placeholder="flag as fake"/><span> 
