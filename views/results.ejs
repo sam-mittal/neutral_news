@@ -11,7 +11,7 @@
           <hr>
             <%=article["author"]%>
           <hr>
-            <form action="/fakevote", method="POST"></form>
+            <form action="/fakevote/<%= article["title"] %>", method="POST">
               <input type="submit" name="fakevote" value="Upvote" placeholder="flag as fake"/><span> <%= article["fc"] %></span>
             </form>
       </li>

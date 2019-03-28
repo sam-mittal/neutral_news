@@ -9,8 +9,8 @@ app.set("view engine", "ejs");
 
 var article = [
     {title:"newsnews",author:"sam",content:"this is the news zzgdf gszfibskjjgzsfb lorem ipsum" ,category:"genral",fc :0}
-    ,{title:"newsnews",author:"sam",content:"this is the news zzgdf gszfibskjjgzsfb lorem ipsum" ,category:"genral",fc :0}
-    ,{title:"newsnews",author:"sam",content:"this is the news zzgdf gszfibskjjgzsfb lorem ipsum" ,category:"genral",fc :0}
+    ,{title:"news",author:"sam",content:"this is the news zzgdf gszfibskjjgzsfb lorem ipsum" ,category:"genral",fc :0}
+    ,{title:"newsn",author:"sam",content:"this is the news zzgdf gszfibskjjgzsfb lorem ipsum" ,category:"genral",fc :0}
 ]
 
 app.get("/", function(req, res){
@@ -58,16 +58,17 @@ app.get("/newarticle1", function(req, res){
 //     });
 // });
 
-app.post("/fakevote", function(req, res){
+app.post("/fakevote/:name", function(req, res){
     console.log("b clicked");
+    
+    console.log(req.params.name);
+    article.forEach(function(art){
+        if(req.params.name == art["title"])
+        {
+            art["fc"]++;
+        }
+    });
     res.redirect("/");
-    // console.log(name);
-    // article.forEach(function(art){
-    //     if(name == art["title"])
-    //     {
-    //         art["fc"]++;
-    //     }
-    // });
 });
 
 
